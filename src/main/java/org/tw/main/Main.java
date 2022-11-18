@@ -1,16 +1,18 @@
 package org.tw.main;
 
-import org.tw.domain.ApplePencil;
-import org.tw.domain.Cart;
-import org.tw.domain.SonyWirelessHeadPhone;
+import org.tw.domain.*;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         Cart cart = new Cart();
-        ApplePencil applePencil = new ApplePencil();
-        cart.addItem(applePencil);
-        SonyWirelessHeadPhone sonyWirelessHeadPhone = new SonyWirelessHeadPhone();
-        cart.addItem(sonyWirelessHeadPhone);
+        Pencil applePencil = new Pencil("Apple");
+        cart.addItem(new Item(applePencil));
+        HeadPhone sonyWirelessHeadPhone = new HeadPhone("sony",true);
+        cart.addItem(new Item(sonyWirelessHeadPhone,1));
+        List<Product> cartItemsRemoved = cart.getCartItemsRemoved();
+        System.out.println(cartItemsRemoved);
     }
 }
